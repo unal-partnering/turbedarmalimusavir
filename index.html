@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Türbedar Mali Müşavir - Gülsinan Ergün. Profesyonel muhasebe, vergi danışmanlığı ve şirket kuruluş hizmetleri. İnsanlık için el ele.">
+    <title>Türbedar Mali Müşavir | Gülsinan Ergün</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config & Custom CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', /* Çok koyu lacivert */
+                            primary: '#1e3a8a', /* Ana Lacivert */
+                            accent: '#fbbf24', /* Altın Sarısı */
+                            light: '#f8fafc',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e3a8a;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #172554;
+        }
+
+        /* Hero Overlay Gradient */
+        .hero-overlay {
+            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(15, 23, 42, 0.8));
+        }
+
+        /* Pulse Animation for WhatsApp */
+        @keyframes pulse-custom {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse {
+            animation: pulse-custom 2s infinite;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Chat Widget Animations */
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .chat-anim {
+            animation: slideInUp 0.3s ease-out forwards;
+        }
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50 antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-heading font-extrabold text-white tracking-wide hover:text-brand-accent transition">
+                TÜRBEDAR <span class="font-light">SMMM</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-white hover:text-brand-accent font-medium transition text-sm uppercase tracking-wider">Anasayfa</a>
+                <a href="#about" class="text-white hover:text-brand-accent font-medium transition text-sm uppercase tracking-wider">Kurumsal</a>
+                <a href="#services" class="text-white hover:text-brand-accent font-medium transition text-sm uppercase tracking-wider">Hizmetler</a>
+                <a href="#links" class="text-white hover:text-brand-accent font-medium transition text-sm uppercase tracking-wider">Faydalı Linkler</a>
+                <a href="#contact" class="bg-brand-accent text-brand-primary px-5 py-2 rounded-full font-bold hover:bg-white transition shadow-lg transform hover:-translate-y-1">İletişim</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-primary absolute w-full left-0 top-full shadow-xl border-t border-blue-800">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#home" class="text-white hover:text-brand-accent border-b border-blue-800 pb-2">Anasayfa</a>
+                <a href="#about" class="text-white hover:text-brand-accent border-b border-blue-800 pb-2">Kurumsal & Sosyal</a>
+                <a href="#services" class="text-white hover:text-brand-accent border-b border-blue-800 pb-2">Hizmetler</a>
+                <a href="#links" class="text-white hover:text-brand-accent border-b border-blue-800 pb-2">Faydalı Linkler</a>
+                <a href="#contact" class="text-brand-accent font-bold">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="reveal active">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-accent/20 text-brand-accent border border-brand-accent mb-4 text-sm font-bold tracking-widest uppercase backdrop-blur-sm">
+                    Mali Müşavirlik Hizmetleri
+                </span>
+                <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-4 leading-tight">
+                    Gülsinan Ergün
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light max-w-2xl mx-auto">
+                    İşinizde Güven, Geleceğinizde Huzur.<br>
+                    <span class="font-medium text-white">Serbest Muhasebeci Mali Müşavir</span>
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#services" class="px-8 py-3 rounded-lg border-2 border-white text-white font-semibold hover:bg-white hover:text-brand-primary transition duration-300">
+                        Hizmetlerimizi İnceleyin
+                    </a>
+                    <button onclick="toggleChat()" class="px-8 py-3 rounded-lg bg-white/10 backdrop-blur-md border border-brand-accent text-brand-accent font-bold shadow-lg hover:bg-brand-accent hover:text-brand-primary transition duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-robot"></i> Mevzuat Asistanına Sor ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <a href="#about" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce text-2xl opacity-70 hover:opacity-100 transition">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </header>
+
+    <!-- Hakkımızda & İnsanlık İçin El Ele -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Profesyonel Yön -->
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-primary mb-6 relative inline-block">
+                        Hakkımızda
+                        <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-brand-accent rounded"></span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        <span class="font-bold text-brand-primary">Gülsinan Ergün</span>, Serbest Muhasebeci Mali Müşavir olarak, yılların getirdiği tecrübe ve mevzuat hakimiyeti ile mükelleflerine güvenilir mali danışmanlık hizmeti sunmaktadır.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        İşletmelerin finansal süreçlerini en doğru şekilde yönetmek, vergi planlamalarını optimize etmek ve yasal uyumluluklarını sağlamak adına profesyonel çözümler üretiyoruz. Şeffaflık, dürüstlük ve gizlilik prensipleriyle çalışarak iş ortaklarımızın büyümesine katkı sağlıyoruz.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-brand-primary mr-3"></i> Güncel Mevzuat Takibi
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-brand-primary mr-3"></i> Çözüm Odaklı Yaklaşım
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-brand-primary mr-3"></i> Dijital Muhasebe Altyapısı
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sosyal Yön (Özel Kart Tasarımı) -->
+                <div class="reveal relative bg-brand-primary text-white rounded-2xl p-8 md:p-12 shadow-2xl overflow-hidden">
+                    <!-- Dekoratif Arka Plan -->
+                    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-brand-accent rounded-full opacity-20 blur-2xl"></div>
+                    <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-blue-500 rounded-full opacity-20 blur-2xl"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="bg-white/10 p-3 rounded-full">
+                                <i class="fas fa-hands-holding-heart text-3xl text-brand-accent"></i>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-heading font-bold">İnsanlık İçin El Ele</h3>
+                        </div>
+                        
+                        <p class="text-blue-100 text-lg leading-relaxed mb-6 italic border-l-4 border-brand-accent pl-4">
+                            "Sadece rakamlarla değil, insan hayatına dokunan değerlerle çalışıyoruz."
+                        </p>
+                        
+                        <p class="text-blue-50 leading-relaxed mb-6">
+                            Gülsinan Ergün öncülüğünde yürütülen projelerle, mesleki başarının ötesinde toplumsal faydayı hedefliyoruz. İhtiyaç sahiplerine <strong class="text-brand-accent">ilaç yardımı</strong>, öğrencilere <strong class="text-brand-accent">burs desteği</strong> ve <strong class="text-brand-accent">kurban yardımları</strong> gibi sosyal desteklerle, zorda kalanlara el uzatıyor, topluma katkı sağlıyoruz.
+                        </p>
+                        
+                        <div class="mt-6 flex items-center gap-2 text-sm text-brand-accent font-semibold">
+                            <span>SOSYAL SORUMLULUK PROJESİ</span>
+                            <div class="h-px bg-brand-accent flex-grow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmetlerimiz -->
+    <section id="services" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-primary font-bold uppercase tracking-wider text-sm">Uzmanlık Alanlarımız</span>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-800 mt-2">Hizmetlerimiz</h2>
+                <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Kart 1 -->
+                <div class="reveal bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent hover:border-brand-primary hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-primary transition">
+                        <i class="fas fa-calculator text-2xl text-brand-primary group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Genel Muhasebe</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Yasal defterlerin tutulması, beyannamelerin hazırlanması ve tüm muhasebe süreçlerinin mevzuata uygun yönetimi.
+                    </p>
+                </div>
+
+                <!-- Kart 2 -->
+                <div class="reveal bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent hover:border-brand-primary hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-primary transition">
+                        <i class="fas fa-file-invoice-dollar text-2xl text-brand-primary group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Vergi Danışmanlığı</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Vergi planlaması, vergi avantajlarının değerlendirilmesi ve yasal yükümlülüklerin zamanında yerine getirilmesi.
+                    </p>
+                </div>
+
+                <!-- Kart 3 -->
+                <div class="reveal bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent hover:border-brand-primary hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-primary transition">
+                        <i class="fas fa-building text-2xl text-brand-primary group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Şirket Kuruluşu</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Şirket ana sözleşmesinin hazırlanması, ticaret sicil işlemleri, açılış süreçleri ve tasfiye işlemleri danışmanlığı.
+                    </p>
+                </div>
+
+                <!-- Kart 4 -->
+                <div class="reveal bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent hover:border-brand-primary hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-primary transition">
+                        <i class="fas fa-users text-2xl text-brand-primary group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">SGK & Bordrolama</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Personel özlük dosyaları, bordro hazırlama, işe giriş-çıkış işlemleri ve iş hukuku danışmanlığı.
+                    </p>
+                </div>
+
+                <!-- Kart 5 -->
+                <div class="reveal bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent hover:border-brand-primary hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-primary transition">
+                        <i class="fas fa-chart-line text-2xl text-brand-primary group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Mali Analiz</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Bilanço ve gelir tablosu analizleri ile işletmenizin finansal durumunun raporlanması ve geleceğe yönelik projeksiyonlar.
+                    </p>
+                </div>
+
+                <!-- Kart 6 -->
+                <div class="reveal bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent hover:border-brand-primary hover:-translate-y-2 transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-primary transition">
+                        <i class="fas fa-handshake text-2xl text-brand-primary group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">KOSGEB & Teşvikler</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Devlet destekleri, KOSGEB hibeleri ve vergi teşvikleri konusunda bilgilendirme ve başvuru süreçlerinin yönetimi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faydalı Linkler Banner -->
+    <section id="links" class="py-12 bg-brand-primary">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl text-white font-bold mb-8 text-center">Faydalı Bağlantılar</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://www.gib.gov.tr" target="_blank" class="px-6 py-3 border border-white/30 text-white rounded hover:bg-white hover:text-brand-primary transition font-medium">
+                    <i class="fas fa-landmark mr-2"></i> Gelir İdaresi Bşk.
+                </a>
+                <a href="https://www.sgk.gov.tr" target="_blank" class="px-6 py-3 border border-white/30 text-white rounded hover:bg-white hover:text-brand-primary transition font-medium">
+                    <i class="fas fa-shield-alt mr-2"></i> SGK
+                </a>
+                <a href="https://www.ticaretsicil.gov.tr" target="_blank" class="px-6 py-3 border border-white/30 text-white rounded hover:bg-white hover:text-brand-primary transition font-medium">
+                    <i class="fas fa-newspaper mr-2"></i> Ticaret Sicil Gazetesi
+                </a>
+                <a href="https://www.turmob.org.tr" target="_blank" class="px-6 py-3 border border-white/30 text-white rounded hover:bg-white hover:text-brand-primary transition font-medium">
+                    <i class="fas fa-briefcase mr-2"></i> TÜRMOB
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim & Harita -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Sol: İletişim Bilgileri -->
+                <div class="reveal">
+                    <span class="text-brand-primary font-bold uppercase tracking-wider text-sm">Bize Ulaşın</span>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-800 mt-2 mb-8">İletişim Bilgileri</h2>
+                    
+                    <div class="space-y-8">
+                        <!-- Telefon -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 text-brand-primary">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-gray-500 text-sm uppercase font-semibold tracking-wide mb-1">Telefon</h4>
+                                <a href="tel:05349528550" class="text-2xl font-bold text-gray-800 hover:text-brand-primary transition">
+                                    0534 952 85 50
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- E-posta -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 text-brand-primary">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-gray-500 text-sm uppercase font-semibold tracking-wide mb-1">E-Posta</h4>
+                                <a href="mailto:gulsinanergun06@gmail.com" class="text-lg font-medium text-gray-800 hover:text-brand-primary transition">
+                                    gulsinanergun06@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Adres -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 text-brand-primary">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-gray-500 text-sm uppercase font-semibold tracking-wide mb-1">Adres</h4>
+                                <p class="text-lg font-medium text-gray-800">
+                                    Kuyumcular Çarşısı, Demetevler, 358. Cd. No:2<br>
+                                    <span class="text-gray-500 text-base font-normal">06200 Yenimahalle/Ankara</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigasyon Butonları -->
+                    <div class="mt-10">
+                        <h4 class="text-gray-800 font-bold mb-4">Yol Tarifi Alın:</h4>
+                        <div class="flex gap-4">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Kuyumcular+Çarşısı,+Demetevler,+358.+Cd.+No:2,+06200+Yenimahalle/Ankara" target="_blank" class="flex-1 text-center bg-white border border-gray-300 text-gray-700 py-3 rounded hover:bg-gray-50 hover:border-brand-primary hover:text-brand-primary transition flex items-center justify-center gap-2">
+                                <i class="fab fa-google"></i> Google Maps
+                            </a>
+                            <a href="https://yandex.com.tr/maps/?text=Kuyumcular+Çarşısı,+Demetevler,+358.+Cd.+No:2,+06200+Yenimahalle/Ankara" target="_blank" class="flex-1 text-center bg-white border border-gray-300 text-gray-700 py-3 rounded hover:bg-gray-50 hover:border-red-500 hover:text-red-500 transition flex items-center justify-center gap-2">
+                                <i class="fab fa-yandex"></i> Yandex Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ: Harita (Görsel Temsil) -->
+                <div class="reveal h-full min-h-[400px] rounded-2xl overflow-hidden shadow-2xl relative group">
+                    <!-- Google Maps Embed Place holder used instead of API Key to ensure it works freely -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.6087537651036!2d32.793739!3d39.962561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34965889758f5%3A0x6758509893963488!2sDemetevler%2C%20358.%20Cd.%20No%3A2%2C%2006200%20Yenimahalle%2FAnkara!5e0!3m2!1str!2str!4v1634567890123!5m2!1str!2str" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition duration-500"
+                    ></iframe>
+                    
+                    <div class="absolute inset-0 bg-brand-primary/10 pointer-events-none group-hover:bg-transparent transition"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h2 class="text-xl font-heading font-bold text-white mb-2">TÜRBEDAR <span class="text-gray-400 font-normal">SMMM</span></h2>
+                <p class="text-gray-500 text-sm">© 2024 Gülsinan Ergün. Tüm Hakları Saklıdır.</p>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <span class="text-gray-500 text-sm mr-2 hidden md:inline">Sosyal Medya:</span>
+                <a href="https://www.facebook.com/p/G%C3%BClsinan-Erg%C3%BCn-100078760734080/" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition duration-300">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.ankbagsmmmder.org.tr/kadrodetay/gulsinan-ergun" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-accent hover:text-brand-primary transition duration-300" title="Dernek Profili">
+                    <i class="fas fa-id-card"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chat Widget -->
+    <!-- Trigger Button (Floating Left above WhatsApp) -->
+    <button onclick="toggleChat()" class="fixed bottom-24 right-6 w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center shadow-2xl z-40 hover:scale-110 transition duration-300 group border-2 border-brand-accent">
+        <i class="fas fa-robot text-2xl group-hover:rotate-12 transition"></i>
+        <div class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+        <div class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 bg-white text-gray-800 px-3 py-1 rounded shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+            Mevzuat Asistanı ✨
+        </span>
+    </button>
+
+    <!-- Chat Interface Modal -->
+    <div id="ai-chat-widget" class="fixed bottom-24 right-24 w-80 md:w-96 bg-white rounded-2xl shadow-2xl z-50 hidden border border-gray-200 overflow-hidden flex flex-col chat-anim" style="height: 500px; max-height: 80vh;">
+        <!-- Chat Header -->
+        <div class="bg-brand-primary p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-3">
+                <div class="bg-white/20 p-2 rounded-full">
+                    <i class="fas fa-robot text-brand-accent"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm">Mevzuat Asistanı ✨</h3>
+                    <p class="text-xs text-blue-200">Gemini AI ile güçlendirildi</p>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="text-white/70 hover:text-white transition">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-3">
+            <!-- Initial Message -->
+            <div class="flex items-start gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center text-white text-xs flex-shrink-0">AI</div>
+                <div class="bg-white p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-sm text-sm text-gray-700 border border-gray-100">
+                    Merhaba! 👋 Ben Gülsinan Ergün'ün sanal asistanıyım. <br><br>
+                    Vergi, muhasebe veya şirket kuruluşu hakkında aklınıza takılan soruları bana sorabilirsiniz.
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Indicator (Hidden by default) -->
+        <div id="chat-loading" class="hidden px-4 pb-2 bg-gray-50">
+            <div class="flex items-center gap-2 text-gray-400 text-xs ml-10">
+                <span>Asistan yazıyor</span>
+                <div class="flex gap-1">
+                    <div class="w-1 h-1 bg-gray-400 rounded-full typing-dot"></div>
+                    <div class="w-1 h-1 bg-gray-400 rounded-full typing-dot"></div>
+                    <div class="w-1 h-1 bg-gray-400 rounded-full typing-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-3 border-t border-gray-200 bg-white">
+            <form onsubmit="handleChatSubmit(event)" class="relative">
+                <input type="text" id="user-input" placeholder="Sorunuzu buraya yazın..." class="w-full pl-4 pr-12 py-3 bg-gray-100 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white transition text-gray-700">
+                <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-brand-primary text-white rounded-full flex items-center justify-center hover:bg-brand-accent hover:text-brand-primary transition shadow-md">
+                    <i class="fas fa-paper-plane text-xs"></i>
+                </button>
+            </form>
+            <p class="text-[10px] text-gray-400 text-center mt-2">
+                Yapay zeka hatalı bilgi verebilir. Resmi tavsiye değildir.
+            </p>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/905349528550" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl z-40 hover:scale-110 transition duration-300 whatsapp-pulse group">
+        <i class="fab fa-whatsapp text-4xl"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 bg-white text-gray-800 px-3 py-1 rounded shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+            WhatsApp Hattı
+        </span>
+    </a>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.remove('bg-transparent', 'py-4');
+                navbar.classList.add('bg-brand-primary', 'shadow-lg', 'py-2');
+            } else {
+                navbar.classList.add('bg-transparent', 'py-4');
+                navbar.classList.remove('bg-brand-primary', 'shadow-lg', 'py-2');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        /* --- GEMINI AI CHAT LOGIC --- */
+        const chatWidget = document.getElementById('ai-chat-widget');
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const loadingIndicator = document.getElementById('chat-loading');
+
+        function toggleChat() {
+            chatWidget.classList.toggle('hidden');
+            if (!chatWidget.classList.contains('hidden')) {
+                userInput.focus();
+            }
+        }
+
+        function appendMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = `flex items-start gap-2.5 ${sender === 'user' ? 'flex-row-reverse' : ''}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = `w-8 h-8 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0 ${sender === 'user' ? 'bg-gray-500' : 'bg-brand-primary'}`;
+            avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : 'AI';
+
+            const bubble = document.createElement('div');
+            bubble.className = `p-3 shadow-sm text-sm max-w-[80%] ${
+                sender === 'user' 
+                ? 'bg-brand-primary text-white rounded-tl-xl rounded-tr-none rounded-br-xl rounded-bl-xl' 
+                : 'bg-white text-gray-700 rounded-tr-xl rounded-br-xl rounded-bl-xl border border-gray-100'
+            }`;
+            
+            // Convert simple markdown bold to HTML bold for AI responses
+            if (sender === 'ai') {
+                bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+            } else {
+                bubble.textContent = text;
+            }
+
+            div.appendChild(avatar);
+            div.appendChild(bubble);
+            chatMessages.appendChild(div);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        async function handleChatSubmit(e) {
+            e.preventDefault();
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // 1. Show user message
+            appendMessage(text, 'user');
+            userInput.value = '';
+
+            // 2. Show loading
+            loadingIndicator.classList.remove('hidden');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            try {
+                // 3. Call Gemini API
+                // DİKKAT: Buraya kendi API anahtarınızı yazmalısınız.
+                // Anahtarı https://aistudio.google.com/app/apikey adresinden alabilirsiniz.
+                const apiKey = "AIzaSyAvYWkwfDKdCCR0XF1OzEnMkHAdCrjz79k"; 
+                
+                // Model olarak gemini-flash-latest kullanılıyor
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
+                
+                const systemPrompt = "Sen Türbedar Mali Müşavir Gülsinan Ergün için çalışan yardımsever, profesyonel bir 'Mevzuat Asistanısın'. Kullanıcının vergi, muhasebe, SGK ve şirket kuruluşu ile ilgili sorularına Türkçe cevap ver. Cevapların kısa (maksimum 3-4 cümle), anlaşılır ve güven verici olsun. Her cevabın sonunda nazikçe 'Detaylı bilgi ve resmi işlemleriniz için lütfen Gülsinan Hanım ile iletişime geçiniz.' minvalinde bir uyarı ekle. Asla kesin hukuki tavsiye verme, sadece genel bilgi sağla. Samimi ama resmi bir dil kullan.";
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: text }]
+                        }],
+                        systemInstruction: {
+                            parts: [{ text: systemPrompt }]
+                        }
+                    })
+                });
+
+                if (!response.ok) throw new Error('API Hatası');
+
+                const data = await response.json();
+                const aiResponse = data.candidates[0].content.parts[0].text;
+
+                // 4. Show AI response
+                loadingIndicator.classList.add('hidden');
+                appendMessage(aiResponse, 'ai');
+
+            } catch (error) {
+                console.error('Hata:', error);
+                loadingIndicator.classList.add('hidden');
+                appendMessage("Üzgünüm, şu anda bağlantı kuramıyorum. Lütfen WhatsApp üzerinden bizimle iletişime geçin.", 'ai');
+            }
+        }
+    </script>
+</body>
+</html>
